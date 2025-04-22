@@ -2,23 +2,33 @@ let initialRows = [];
 
 function updateBusTimes() {
     let buses = [];
-    
+
     // Generating bus numbers from 1 to 100
     for (let i = 1; i <= 100; i++) {
         buses.push({ number: i, arrival: "" });
     }
-    
+
     let tableBody = document.getElementById("busTable");
+    if (!tableBody) {
+        console.error("Error: Element with ID 'busTable' not found!");
+        return;
+    }
     tableBody.innerHTML = "";
-    
+    initialRows = []; // Clear the array when the table is updated
+
     buses.forEach(bus => {
         let row = document.createElement("tr");
         row.dataset.routeNumber = bus.number; // Store the route number in a data attribute
-        row.innerHTML = `<td><input type='checkbox' onchange='updateArrivalTime(this)'></td>
-                         <td>Route number ${bus.number}</td>
-                         <td class='arrival-time'></td>`;
+        row.innerHTML = `
+            <td><input type='checkbox' onchange='updateArrivalTime(this)'></td>
+            <td>Route number ${bus.number}</td>
+            <td class='arrival-time'></td>
+        `;
         tableBody.appendChild(row);
-        initialRows.push(row); // Store the initial row
+        initialRows.push({
+            routeNumber: bus.number,
+            element: row,
+        }); // Store the initial row data
     });
 }
 
@@ -33,30 +43,33 @@ function updateArrivalTime(checkbox) {
         let formattedTime = `${hours}:${minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
         parentRow.querySelector('.arrival-time').textContent = formattedTime;
 
-        // Ensure the tick appears first
+        // Ensure the tick appears first, then move the row
         setTimeout(() => {
-            // Move the row to the end of the table without transition
-            tableBody.appendChild(parentRow);
-        }, 1000); // 1000ms delay to ensure tick appears first
+            tableBody.appendChild(parentRow); // Move the row to the end
+        }, 50);
     } else {
         parentRow.querySelector('.arrival-time').textContent = "";
 
         // Move the row back to its original position
         const routeNumber = parentRow.dataset.routeNumber;
-        const originalIndex = initialRows.findIndex(row => row.dataset.routeNumber === routeNumber);
-        const rows = Array.from(tableBody.rows);
-        rows.splice(rows.indexOf(parentRow), 1); // Remove the row from its current position
-        rows.splice(originalIndex, 0, parentRow); // Insert the row back to its original position
+        const originalIndex = initialRows.findIndex(item => item.routeNumber === routeNumber);
 
-        // Reinsert rows in the correct order
-        rows.forEach(row => tableBody.appendChild(row));
+        if (originalIndex !== -1) {
+            const originalElement = initialRows[originalIndex].element;
+            const rows = Array.from(tableBody.rows);
+            const currentIndex = rows.indexOf(parentRow);
+
+            if (currentIndex !== -1 && currentIndex !== originalIndex) {
+                tableBody.insertBefore(parentRow, originalElement);
+            }
+        }
     }
 }
 
 function filterRows() {
     const searchValue = document.getElementById('searchBar').value.toLowerCase();
     const rows = document.querySelectorAll('#busTable tr');
-    
+
     rows.forEach(row => {
         const routeNumber = row.dataset.routeNumber;
         if (routeNumber.includes(searchValue)) {
