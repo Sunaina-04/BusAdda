@@ -92,11 +92,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
     const guardInfo = document.getElementById("guard-info");
     if (guardInfo) {
-        const img = guardInfo.querySelector('.guard-avatar');
-        if (img) {
-            guardInfo.insertBefore(span, img.nextSibling); // Insert name after the avatar
-        } else {
-            guardInfo.appendChild(span); // If no avatar, just append the name
-        }
+        guardInfo.appendChild(span);
     }
 });
