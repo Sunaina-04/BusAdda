@@ -4,40 +4,44 @@
     <link rel="icon" type="image/png" href="assets/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Arrival Page</title>
+    <title>Bus Adda | Arrival</title>
     <link rel="stylesheet" href="arrival.css">
 </head>
-<body>
-    <div class="header">
-        <div class="logo-title">
-            <img src="assets/logo.png" alt="Logo">
-            <h1>Bus Adda</h1>
-        </div>
-        <h1>Arrival</h1>
-        <div class="auth-buttons">
-            <button class="select-btn" onclick="window.location.href='dashboard.html'">Home</button>
-        </div>
+<div class="header">
+    <div class="logo-title">
+        <img src="assets/logo.png" alt="Logo">
+        <h1>Bus Adda</h1>
     </div>
-
-    <div class="container">
-        <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search by Route Number" oninput="filterRows()">
-            <span class="search-icon">&#128269;</span>
+    <h1 >Arrival</h1>
+     <div class="auth-buttons">
+        <div id="guard-info">
+            <img src="assets/guard.jpg" alt="Guard Avatar" class="guard-avatar">
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Select</th>
-                    <th>Route Number</th>
-                    <th>Arrival Time</th>
-                </tr>
-            </thead>
-            <tbody id="busTable">
-                </tbody>
-        </table>
+     <button class="select-btn" onclick="window.location.href='dashboard.html'">Home</button>
     </div>
+</div>
 
-    <a href="contact.html" class="contact-button" title="Contact Support">Contact Us 💬</a>
-    <script src="script.js"></script>
+<div class="container">
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search by Route Number" oninput="filterRows()">
+        <span class="search-icon">&#128269;</span>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Route Number</th>
+                <th>Arrival Time</th>
+            </tr>
+        </thead>
+        <tbody id="busTable">
+            </tbody>
+    </table>
+</div>
+
+<a href="contact.html" class="contact-button" title="Contact Support">Contact Us 💬</a>
+<script src="script.js"></script>
 </body>
+</html>
+
 </html>
