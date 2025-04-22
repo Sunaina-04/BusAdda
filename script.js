@@ -82,3 +82,21 @@ function filterRows() {
 
 // Initialize table on load
 document.addEventListener("DOMContentLoaded", updateBusTimes);
+
+window.addEventListener("DOMContentLoaded", function () {
+    const userName = localStorage.getItem("userName") || "Guest";
+
+    const span = document.createElement("span");
+    span.className = "guard-name";
+    span.textContent = userName;
+
+    const guardInfo = document.getElementById("guard-info");
+    if (guardInfo) {
+        const img = guardInfo.querySelector('.guard-avatar');
+        if (img) {
+            guardInfo.insertBefore(span, img.nextSibling); // Insert name after the avatar
+        } else {
+            guardInfo.appendChild(span); // If no avatar, just append the name
+        }
+    }
+});
