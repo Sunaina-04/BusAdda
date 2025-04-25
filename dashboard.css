@@ -1,8 +1,7 @@
-/* Full-page background */
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f2efe7, #9acbd0); /* Updated colors */
+    background: linear-gradient(135deg, #f2efe7, #9acbd0); 
     height: 100vh;
     display: flex;
     align-items: center;
@@ -10,7 +9,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Selection container */
 .selection-container {
     background: rgba(255, 255, 255, 0.23);
     padding: 40px;
@@ -23,21 +21,19 @@ body {
     margin-bottom: 100px;
 }
 
-/* Heading */
 h2 {
-    color: #006a71; /* Updated color */
+    color: #006a71; 
     margin-bottom: 20px;
     font-size: 26px;
     font-weight: bolder;
 }
 
-/* Buttons */
 button {
     width: 100%;
     padding: 14px;
     margin: 10px 0;
-    background-color: #48a6a7; /* Updated color */
-    color: #f2efe7; /* Updated color */
+    background-color: #48a6a7; 
+    color: #f2efe7;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -46,20 +42,17 @@ button {
     transition: 0.3s;
 }
 
-/* Button hover effect */
 button:hover {
     background-color: #ffce39;
     transform: scale(1.05);
     box-shadow: 0px 4px 12px rgba(41, 128, 185, 0.5);
 }
 
-/* Button focus effect */
 /* button:focus {
     outline: none;
     box-shadow: 0px 0px 15px rgba(52, 152, 219, 0.7);
 } */
 
-/* Footer */
 .footer {
     position: fixed;
     bottom: 0;
@@ -85,7 +78,6 @@ button:hover {
     margin-top: 5px;
 }
 
-/* Guard Info */
 #guard-info {
     border: 2px solid #9acbd0;  
     padding: 8px;
@@ -117,16 +109,15 @@ button:hover {
     margin-bottom: 2px;
 }
 
-/* Modal styles */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(5px); /* Blur effect for the background */
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px); 
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -170,19 +161,30 @@ button:hover {
 
 .edit-profile-link {
     display: block;
-    font-size: 12px; /* Small font size */
-    color: #007bff; /* Link color */
+    font-size: 12px; 
+    color: #007bff; 
     text-decoration: none;
-    margin-top: 2px; /* Add some spacing */
+    margin-top: 2px; 
 }
 
 .edit-profile-link:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline; 
 }
+
 /* Responsive Design */
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .selection-container {
         width: 90%;
+        width: 65%;
+        padding: 20px;
+        margin-bottom: 120px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    button {
+        width: 75%;
+        font-size: 20px;
     }
 }
 
@@ -193,10 +195,9 @@ body, html {
     height: 100vh;
 }
 
-/* Full-width background video with top cropped */
 .background-video {
     position: absolute;
-    top: -60px; /* Crop from the top */
+    top: -60px; 
     left: 0;
     width: 100%;
     height: 100vh;
