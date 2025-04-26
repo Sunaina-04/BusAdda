@@ -98,7 +98,7 @@ button:hover {
 
 
 .login-container p {
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-top: 10px;
 }
 
@@ -106,7 +106,7 @@ button:hover {
     color: #333;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.75em; /* smaller sign up text */
+    font-size: 0.9em; /* smaller sign up text */
 }
 
 .login-container p a:hover {
