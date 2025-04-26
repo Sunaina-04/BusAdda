@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f2efe7, #9acbd0); 
+    background: linear-gradient(135deg, #f2efe7, #9acbd0);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,15 +11,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     overflow: hidden;
+    position: relative;
 }
 
-body::before, body::after {
+body::before,
+body::after {
     content: '';
     position: absolute;
-    width: 150px; 
-    /* Adjusted responsiveness */
-    height: 150px; 
-    /* Adjusted responsiveness */
+    width: 150px;
+    height: 150px;
     background: #48a6a7;
     border-radius: 50%;
     opacity: 0.5;
@@ -27,44 +27,42 @@ body::before, body::after {
 }
 
 body::before {
-    top: -30px; 
-    /* Adjusted responsiveness */
-    left: -30px; 
-    /* Adjusted responsiveness */
+    top: -30px;
+    left: -30px;
 }
 
 body::after {
-    bottom: -30px; 
-    /* Adjusted  responsiveness */
+    bottom: -30px;
     right: -30px;
-     /* Adjusted responsiveness */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
 }
 
 .login-container {
     background: rgba(255, 255, 255, 0.145);
-    padding: 20px; 
-    /* Adjusted responsiveness */
-    border-radius: 8px; 
-    /* Adjusted responsiveness */
+    padding: 20px;
+    border-radius: 8px;
     backdrop-filter: blur(5px);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4); 
-    /* Adjusted responsiveness */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
     text-align: center;
     width: 90%;
-     /* Adjusted responsiveness */
     max-width: 350px;
-    color: #333; 
+    color: #333;
 }
 
 .logo {
-    width: 60px; 
-    /* Adjusted responsiveness */
+    width: 80px;  
     height: auto;
     display: block;
-    margin: -5px auto 15px auto; 
-    /* Adjusted responsiveness */
-    border-radius: 30px; 
-    /* Adjusted responsiveness */
+    margin: -10px;
+    border-radius: 50px;
 }
 
 .login-form {
@@ -74,53 +72,54 @@ body::after {
     width: 100%;
 }
 
-input[type="text"] {
+/* Input fields */
+input[type="text"], input[type="password"] {
     border: 1px solid #B1C29E;
-    padding: 8px; 
-    /* Adjusted responsiveness */
+    padding: 10px;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 8px; 
-    /* Adjusted responsiveness */
-    border-radius: 4px; 
-    /* Adjusted responsiveness */
-    font-size: 0.9em; 
-    /* Adjusted responsiveness */
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-button[type="submit"] { 
+/* Buttons */
+button {
     background-color: #F0A04B;
     color: #fff;
     border: none;
-    padding: 10px 16px; 
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 4px; 
-    width: 100%; 
-    font-size: 0.9em; 
+    border-radius: 5px;
 }
 
-button[type="submit"]:hover {
+button:hover {
     background-color: #FADA7A;
 }
 
+
 .login-container p {
-    font-size: 0.8em; 
+    font-size: 0.8em;
     margin-top: 10px;
 }
 
-.login-container a {
+.login-container p a {
     color: #333;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.75em; /* smaller sign up text */
 }
 
-.login-container a:hover {
+.login-container p a:hover {
     color: #48a6a7;
     text-decoration: underline;
 }
 
-/* "Contact Us" button */
-.login-container .contact-us-button {
+/* Floating Contact Us Button */
+.contact-us-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
     display: inline-block;
     padding: 12px 20px;
     font-size: 14px;
@@ -133,22 +132,22 @@ button[type="submit"]:hover {
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 15px; 
 }
 
-.login-container .contact-us-button:hover {
+.contact-us-button:hover {
     background-color: #f2efe7;
     color: #006a71;
     transform: scale(1.05);
 }
 
-.login-container .contact-us-button:active {
-    transform: scale(0.95); 
+.contact-us-button:active {
+    transform: scale(0.95);
 }
 
-/* Responsiveness (e.g., phones) */
+/* Responsiveness */
 @media (max-width: 600px) {
-    body::before, body::after {
+    body::before,
+    body::after {
         width: 100px;
         height: 100px;
     }
@@ -169,13 +168,12 @@ button[type="submit"]:hover {
 
     .logo {
         width: 50px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         border-radius: 25px;
     }
 
-    .login-container .contact-us-button {
+    .contact-us-button {
         font-size: 13px;
         padding: 10px 16px;
-        margin-top: 10px;
     }
 }
