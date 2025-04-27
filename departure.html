@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Departure Page</title>
+    <title>Bus Adda | Departure</title>
     <link rel="stylesheet" href="arrival.css">
     <link rel="icon" type="image/png" href="assets/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
 
 </head>
 <body>
@@ -16,6 +18,10 @@
         </div>
         <h1 >Departure</h1>
         <div class="auth-buttons">
+            <div id="guard-info">
+                <img src="assets/guard.jpg" alt="Guard Avatar" class="guard-avatar">
+            </div>
+
             <button class="select-btn" onclick="window.location.href='dashboard.html'">Home</button>
         </div>
     </div>
@@ -37,7 +43,9 @@
         
             </tbody>
         </table>
+        <button id="downloadBtn" class="select-btn2">Export as PDF</button>
     </div>
+    <a href="contact.html" class="chatbot-btn" title="Contact Us">Contact Us 💬</a>
     <script src="script.js"></script>
 </body>
 </html>

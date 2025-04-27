@@ -4,8 +4,10 @@
     <link rel="icon" type="image/png" href="assets/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Arrival Page</title>
+    <title>Bus Adda | Arrival</title>
     <link rel="stylesheet" href="arrival.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
 </head>
 <body>
     <div class="header">
@@ -15,6 +17,9 @@
         </div>
         <h1 >Arrival</h1>
          <div class="auth-buttons">
+            <div id="guard-info">
+                <img src="assets/guard.jpg" alt="Guard Avatar" class="guard-avatar">
+            </div>
           <button class="select-btn" onclick="window.location.href='dashboard.html'">Home</button>
         </div> 
     </div>
@@ -36,15 +41,10 @@
                 <!-- Bus data will go here dynamically -->
             </tbody>
         </table>
-        <!-- <form id="addBusForm">
-            <label for="route_no">Route Number:</label>
-            <input type="text" id="route_no" name="route_no" required>
-            <label for="arr_time">Arrival Time:</label>
-            <input type="time" id="arr_time" name="arr_time" required>
-            <button type="submit">Add Bus</button>
-        </form> -->
+        <button id="downloadBtn" class="select-btn2">Export as PDF</button>
     </div>
-
+    
+    <a href="contact.html" class="chatbot-btn" title="Contact Us">Contact Us 💬</a>
     <script src="script.js"></script>
 </body>
 </html>
