@@ -1,6 +1,7 @@
 document.getElementById("signup-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault(); // Prevent form submission from reloading the page
 
+    // Check if the form is valid
     if (this.checkValidity()) {
         const studentName = document.getElementById("student_name").value;
         const rollNo = document.getElementById("roll_no").value;
@@ -10,6 +11,7 @@ document.getElementById("signup-form").addEventListener("submit", function (even
         const confirmPassword = document.getElementById("confirm_password").value;
         const passwordError = document.getElementById("password-error");
 
+        // Check if the passwords match
         if (password !== confirmPassword) {
             passwordError.textContent = "Passwords do not match.";
             return;
@@ -53,21 +55,24 @@ document.getElementById("signup-form").addEventListener("submit", function (even
             feeStatus = `Paid ${feeAmount}`;
         }
 
-        // Save user data in localStorage
+        // Save user data to localStorage
         localStorage.setItem('studentName', studentName);
         localStorage.setItem('rollNo', rollNo);
         localStorage.setItem('routeNo', routeNo);
-        localStorage.setItem('city', lowercaseState);
         localStorage.setItem('state', state);
         localStorage.setItem('gender', gender);
         localStorage.setItem('feeStatus', feeStatus);
         localStorage.setItem('fees', feeAmount);
         localStorage.setItem('avatarUrl', avatarUrl);
-        localStorage.setItem('password', password); // Still insecure for production
+        localStorage.setItem('password', password); // Storing password in localStorage is insecure for production, but fine for testing
 
-        // Ensure that the URL is correct and accessible
-        window.location.href = "student_dash.html";  // Make sure this path is correct relative to the current page
+        console.log("Data saved to localStorage");
+
+        // Redirect to student dashboard after saving data
+        window.location.href = "student_dash.html";  // Ensure this path is correct relative to the current page
+
     } else {
+        // Report form validity if it fails
         this.reportValidity();
     }
 });
