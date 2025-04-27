@@ -6,6 +6,7 @@ body {
     background-color: #f2efe7; /* Updated from #f4f4f9 */
     color: #333; /* Neutral text color */
     width: 100%; /* Ensure body spans the full width */
+    overflow-x: hidden;
 }
 
 /* Top Header */
