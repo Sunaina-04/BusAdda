@@ -116,7 +116,7 @@ body {
     margin-top: 0;
     color: #333;
 }
-.author-info p {
+.author-info p, ul {
     color: #555;
     margin-bottom: 10px;
 }
