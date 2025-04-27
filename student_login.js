@@ -1,5 +1,5 @@
 document.getElementById("signup-form").addEventListener("submit", function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission behavior
 
     if (this.checkValidity()) {
         const studentName = document.getElementById("student_name").value;
@@ -17,7 +17,12 @@ document.getElementById("signup-form").addEventListener("submit", function (even
             passwordError.textContent = ""; // Clear any previous error
         }
 
-        const gender = document.querySelector('input[name="gender"]:checked').value;
+        const gender = document.querySelector('input[name="gender"]:checked')?.value;
+
+        if (!gender) {
+            alert("Please select your gender");
+            return;
+        }
 
         let avatarUrl = "";
         if (gender.toLowerCase() === "male") {
@@ -48,6 +53,7 @@ document.getElementById("signup-form").addEventListener("submit", function (even
             feeStatus = `Paid ${feeAmount}`;
         }
 
+        // Save user data in localStorage
         localStorage.setItem('studentName', studentName);
         localStorage.setItem('rollNo', rollNo);
         localStorage.setItem('routeNo', routeNo);
@@ -59,7 +65,8 @@ document.getElementById("signup-form").addEventListener("submit", function (even
         localStorage.setItem('avatarUrl', avatarUrl);
         localStorage.setItem('password', password); // Still insecure for production
 
-        window.location.href = "student_dash.html";
+        // Ensure that the URL is correct and accessible
+        window.location.href = "student_dash.html";  // Make sure this path is correct relative to the current page
     } else {
         this.reportValidity();
     }
