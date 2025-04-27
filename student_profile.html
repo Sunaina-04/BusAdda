@@ -71,7 +71,96 @@
         </div>
     </div>
 
-    <script src="student_profile.js"></script>
+    <script>
+        
+document.addEventListener("DOMContentLoaded", () => {
+    // Fetch user data from localStorage
+    const studentName = localStorage.getItem("studentName") || "Guest";
+    const studentGender = localStorage.getItem("gender") || "male"; 
+    const studentRollNo = localStorage.getItem("rollNo") || "Unknown";
+    const studentRouteNo = localStorage.getItem("routeNo") || "Not Available";
+    const studentCity = localStorage.getItem("city") || "Not Available";
+    const studentFeeStatus = localStorage.getItem("feeStatus") || "Paid";
+    const studentFees = localStorage.getItem("fees") || "Not Available";
+
+    // Corrected fetching avatar
+    let studentAvatar = localStorage.getItem("avatarUrl") || getAvatarByGender(studentGender);
+
+    // Function to get avatar based on gender
+    function getAvatarByGender(gender) {
+        switch (gender.toLowerCase()) {
+            case "male":
+                return "https://github.com/Sunaina-04/BusAdda/blob/main/assets/male_avatar.png?raw=true";
+            case "female":
+                return "https://github.com/Sunaina-04/BusAdda/blob/main/assets/avatar.jpg?raw=true";
+            default:
+                return "assets/default_avatar.png";
+        }
+    }
+
+    // Update UI
+    function updateUIWithStudentData() {
+        document.getElementById("student-avatar").src = studentAvatar;
+        document.getElementById("student-name").textContent = studentName;
+        document.getElementById("student-roll-no").textContent = studentRollNo;
+        document.getElementById("student-route-no").textContent = studentRouteNo;
+        document.getElementById("student-city").textContent = studentCity;
+        document.getElementById("student-fee-status").textContent = studentFeeStatus;
+        document.getElementById("student-fees").textContent = studentFees;
+        document.getElementById("edit-gender").value = studentGender;
+    }
+
+    updateUIWithStudentData();
+
+    // Modal handling
+    const editProfileBtn = document.getElementById("edit-profile-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const editProfileModal = document.getElementById("edit-profile-modal");
+
+    editProfileBtn.addEventListener("click", () => {
+        editProfileModal.style.display = "block";
+
+        // Fill form with current data
+        document.getElementById("edit-name").value = studentName;
+        document.getElementById("edit-rollno").value = studentRollNo;
+        document.getElementById("edit-route").value = studentRouteNo;
+        document.getElementById("edit-city").value = studentCity;
+        document.getElementById("edit-fee-status").value = studentFeeStatus;
+        document.getElementById("edit-fees").value = studentFees;
+        document.getElementById("edit-gender").value = studentGender;
+    });
+
+    closeBtn.addEventListener("click", () => {
+        editProfileModal.style.display = "none";
+    });
+
+    // Form submission
+    const editForm = document.getElementById("edit-profile-form");
+    editForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const newName = document.getElementById("edit-name").value.trim();
+        const newRollNo = document.getElementById("edit-rollno").value.trim();
+        const newRouteNo = document.getElementById("edit-route").value.trim();
+        const newCity = document.getElementById("edit-city").value.trim();
+        const newGender = document.getElementById("edit-gender").value;
+        const newAvatar = getAvatarByGender(newGender);
+
+        // Save updated data
+        localStorage.setItem("studentName", newName);
+        localStorage.setItem("rollNo", newRollNo);
+        localStorage.setItem("routeNo", newRouteNo);
+        localStorage.setItem("city", newCity);
+        localStorage.setItem("gender", newGender);
+        localStorage.setItem("avatarUrl", newAvatar); // Important: update avatarUrl also
+
+        // Reload page to apply changes immediately
+        location.reload();
+    });
+});
+
+
+    </script>
 
 </body>
 </html>
