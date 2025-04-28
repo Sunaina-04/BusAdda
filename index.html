@@ -6,6 +6,7 @@
     <title>Bus Adda | Home</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/logo.png">
+
 </head>
 <body>
 
@@ -14,13 +15,12 @@
             <img src="assets/logo.png" alt="Logo">
             <h1>Bus Adda</h1>
         </div>
-        <div class="auth-buttons">
-            <button type="button" onclick="location.href='about_us.html'">About Us</button>
-            <button type="button" onclick="location.href='contact.html'">Contact Us</button>
-            <!-- <button type="button" onclick="location.href='register.html'">Sign Up</button> -->
-        </div>
+         <div class="auth-buttons">
+            <button type="button" onclick="location.href='about_us.html'"> About Us </button>
+            <button type="button" onclick="location.href='contact.html'"> Contact Us </button>
+            <!-- <button type="button" onclick="location.href='register.html'"> Sign Up </button>  -->
+        </div> 
     </div>
-
     <section class="hero-section">
         <div class="hero-content">
             <img src="assets/bus2.avif" alt="Bus Image" class="hero-image">
@@ -37,15 +37,14 @@
     <section class="section">
         <div class="about-section">
             <img src="assets/team.png"> 
-            <div class="about-us">
-                <h2> About Us </h2>
-                <p> Bus Adda is a smart web-based platform crafted to support college bus guards in effortlessly managing bus arrivals and departures and help students have a smoother commute experience. Our goal is to simplify tracking, improve coordination, and condition of campus buses.
-                    <a class="read-more" href="about_us.html"> Read More </a>
- </p>
-            </div>
-        </div>
+    <div class="about-us">
+        <h2> About Us </h2>
+        <p> Bus Adda is a smart web-based platform crafted to support college bus guards in effortlessly managing bus arrivals and departures and help students have a smoother commute experience. Our goal is to simplify tracking, improve coordination, and condition of campus buses.
+            <a class="read-more" href="about.html"> Read More </a>
+        </p>
+    </div>
+</div>
     </section>
-
     <section class="service-section">
         <h2>Our Services</h2>
         <div class="services-container">
@@ -53,6 +52,11 @@
                 <h3>Timing Monitor</h3>
                 <img src="assets/timing.jpg" alt="Timing Monitor Icon" class="service-icon">
                 <p>For guards, to keep a record of arrival and departure times of buses.</p>
+            </div>
+            <div class="service-card">
+                <h3>View Logs</h3>
+                <img src="assets/previous.jpg" alt="records icon" class="service-icon">
+                <p>Keep track of all past bus arrivals and departures in one place.</p>            
             </div>
             <div class="service-card">
                 <h3>Bus Feedback</h3>
@@ -64,8 +68,17 @@
                 <img src="assets/lost.jpg" alt="Lost and Found Icon" class="service-icon">
                 <p>Easily report or claim items lost during your bus journey.</p>
             </div>
+            <div class="service-card">
+                <h3>Request a Stop</h3>
+                <img src="assets/stop.jpg" alt="request a new stop icon" class="service-icon">
+                <p>Need a new bus stop? Submit your request easily with our quick form!</p>
+            </div>
         </div>
     </section>
+        
+
+
+    
 
     <footer class="footer">
         <p>
@@ -75,6 +88,6 @@
         </p>
         <div class="copyright">&copy; 2025 BusAdda. All rights reserved.</div>
     </footer>
-
+  
 </body>
 </html>
